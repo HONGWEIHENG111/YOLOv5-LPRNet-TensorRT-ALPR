@@ -1,0 +1,16 @@
+# 核心深度学习框架 (建议根据 CUDA 13.x 配置下载对应的 PyTorch 版本)
+torch>=2.1.0
+torchvision>=0.16.0
+
+# 计算机视觉与图像处理
+opencv-python>=4.7.0.72
+numpy>=1.23.5
+
+# TensorRT 运行库 (Python API)
+tensorrt>=8.6.1
+
+# YOLOv5 其他常见依赖 (根据 utils.datasets 等推测)
+PyYAML>=5.3.1
+scipy>=1.4.1
+tqdm>=4.64.0
+Pillow>=9.5.0
