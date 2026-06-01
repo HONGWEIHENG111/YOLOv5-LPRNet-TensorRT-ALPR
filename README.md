@@ -1,5 +1,6 @@
 # High-Performance ALPR: YOLOv5 + LPRNet TensorRT Deployment
 
+这是之前做过的一个边缘部署任务。只不过是在实习的企业里，相关的代码已经无法获取，但是使用的架构与本模型相似，因此心血来潮复现了一下。
 基于 YOLOv5 与 LPRNet 的高性能自动车牌识别（ALPR）边缘部署方案。本项目通过 NVIDIA TensorRT 实现了从 PyTorch 动态图到强类型静态计算图的转换，深度优化了显存调度和推理延迟，专为边缘设备和移动端 GPU 设计。
 
 **作者:** Yuchen Ye
@@ -35,6 +36,12 @@ Step 2: 构建 TensorRT 引擎 (Engine)调用 TensorRT Builder 对 ONNX 模型�
 Step 3: 高性能推理运行 main_trt.py 对图片、视频或实时 RTSP 流进行车牌识别推理：Bash# 测试默认图片文件夹，结果保存在 demo/rec_result_trt
 python main_trt.py --source ./demo/images/ --view-img
 
-
 ## 部署结果
 运行速度提升约48%，系统吞吐效率提升91%
+
+## 鸣谢 (Acknowledgments)
+本项目的检测与识别算法主体基于 [HuKai97/YOLOv5-LPRNet-Licence-Recognition](https://github.com/HuKai97/YOLOv5-LPRNet-Licence-Recognition) 进行二次开发。
+
+本项目主要在其优秀的算法基础上，针对边缘计算场景（Edge Computing）进行了深度的工程化重构与部署优化，完成了从 PyTorch 动态图到 TensorRT 静态图的转换，并引入了动态 Batch 和显存零拷贝技术。在此特别感谢原作者的开源贡献！
+
+This project is built upon the excellent work of [HuKai97/YOLOv5-LPRNet-Licence-Recognition](https://github.com/HuKai97/YOLOv5-LPRNet-Licence-Recognition). We extended the original repository by focusing on high-performance edge deployment, implementing TensorRT conversion, dynamic batching, and zero-copy memory management. Huge thanks to the original author for their open-source contribution!
